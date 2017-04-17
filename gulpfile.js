@@ -2,7 +2,9 @@ let gulp = require('gulp');
 let glob = require('glob');
 var runSequence = require('run-sequence');
 
-let option = {};
+let option = {
+    'src': 'src'
+};
 
 glob.sync('gulp/*.js').forEach(function(file) {
     require(`./${file}`)(option);
@@ -10,5 +12,5 @@ glob.sync('gulp/*.js').forEach(function(file) {
 
 
 gulp.task('default', function (callback) {
-    runSequence('webpack', callback)
+    runSequence('eslint', 'webpack', callback)
 });

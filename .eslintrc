@@ -1,0 +1,12 @@
+{
+    "extends": "react-app",
+    "rules": {
+        "comma-dangle": 0,
+        "no-console": 0,
+        "no-alert": 0,
+        "no-debugger": 0,
+        "indent": ["error", 4],
+        "brace-style": [2, "stroustrup"],
+        "quotes": [2, "single"]
+    }
+}
