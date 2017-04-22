@@ -12,5 +12,5 @@ glob.sync('gulp/*.js').forEach(function(file) {
 
 
 gulp.task('default', function (callback) {
-    runSequence('eslint', 'webpack', 'browser-start', callback)
+    runSequence('eslint', 'webpack', 'browser-start', 'watch', callback)
 });
