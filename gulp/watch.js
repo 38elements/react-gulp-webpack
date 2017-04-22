@@ -3,8 +3,10 @@ let runSequence = require('run-sequence');
 
 module.exports = function(option) {
     gulp.task('watch', function() {
-        gulp.watch([option.src + '/**/*.js', option.src + '/**/*.css'], function(event) {
-            return runSequence('eslint', 'webpack', 'browser-reload');
+        gulp.watch(
+            [option.src + '/**/*.js', option.src + '/**/*.css', option.src + '/**/*.html'],
+            function(event) {
+            return runSequence('eslint', 'sass', 'webpack', 'browser-reload');
         });
     });
 };

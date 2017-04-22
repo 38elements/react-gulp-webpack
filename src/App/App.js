@@ -10,7 +10,6 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import Home from './Home';
 import About from './About';
-import './App.css';
 
 export const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -53,7 +52,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="App">
                 App<br/>
                 <button onClick={this.about.bind(this)}>about</button>
                 <button onClick={this.home.bind(this)}>home</button>
