@@ -6,7 +6,7 @@ module.exports = function(option) {
         gulp.watch(
             [option.src + '/**/*.js', option.src + '/**/*.css', option.src + '/**/*.html'],
             function(event) {
-            return runSequence('eslint', 'sass', 'webpack', 'browser-reload');
+            return runSequence('eslint', 'html', 'sass', 'webpack', 'browser-reload');
         });
     });
 };
