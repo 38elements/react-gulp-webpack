@@ -12,25 +12,27 @@ module.exports = {
     },
     module: {
         rules: [
-        {
-            test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
-            options: {
-                presets: [require.resolve('babel-preset-react-app')],
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                options: {
+                    presets: [require.resolve('babel-preset-react-app')],
+                },
             },
-        },
-        {
-            test: /\.css$/,
-            use: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 1,
-                    },
-                }
-            ]
-        }
+            /*
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        },
+                    }
+                ]
+            }
+            */
         ]
     },
     node: {
