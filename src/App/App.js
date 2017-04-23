@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
+import { renderRoutes } from 'react-router-config'
 import { createStore, combineReducers, applyMiddleware, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import { Route } from 'react-router';
 import { routerReducer, routerMiddleware, push } from 'react-router-redux';
 import { withRouter } from 'react-router-dom'
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
-import Home from './Home';
-import About from './About';
 
 export const history = createHistory();
 const middleware = routerMiddleware(history);
@@ -56,8 +54,7 @@ class App extends Component {
                 App<br/>
                 <button onClick={this.about.bind(this)}>about</button>
                 <button onClick={this.home.bind(this)}>home</button>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
+                {renderRoutes(this.props.route.routes)}
             </div>
         );
     }
