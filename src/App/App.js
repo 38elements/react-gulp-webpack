@@ -8,25 +8,17 @@ import { withRouter } from 'react-router-dom'
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
+import middlewares from './middlewares';
 
 export const history = createHistory();
-const middleware = routerMiddleware(history);
-
-const logMiddleware = store => next => action => {
-    console.log('log before');
-    console.dir(action);
-    let result = next(action);
-    console.log('log after');
-    console.dir(result);
-    return result;
-}
+const _routerMiddleware = routerMiddleware(history);
 
 export const store = createStore(
     combineReducers({
         ...reducers,
         router: routerReducer
     }),
-    applyMiddleware(thunk, logMiddleware, middleware)
+    applyMiddleware(thunk, ...middlewares, _routerMiddleware)
 );
 
 let actionCreators = {
