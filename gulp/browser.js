@@ -6,10 +6,10 @@ module.exports = function(option) {
         browserSync.init({
             proxy: 'http://localhost:4000',
             serveStatic: [{
-                route: '/public',
+                route: '',
                 dir: 'dist'
             }],
-            startPath: '/public',
+            startPath: '',
             port: 3000
         });
         callback();
