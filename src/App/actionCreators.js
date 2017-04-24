@@ -11,14 +11,15 @@ let actionCreators = {
     },
     request() {
         return (dispatch) => {
-            dispatch({type: ['LOADING_START']});
+            dispatch({type: 'LOADING_START'});
             setTimeout(() => {
                 axios
                     .get('/foo')
                     .then((response) => {
+                        dispatch({type: 'LOADING_END'});
                         dispatch({
-                            type: ['LOADING_END', 'SET_DATA'],
-                            data: response.data
+                            type: 'SET_DATA',
+                            payload: response.data
                         });
                     });
             }, 2000);
