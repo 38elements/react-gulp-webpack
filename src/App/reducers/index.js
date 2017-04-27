@@ -1,3 +1,5 @@
+import data from '../reducer'
+
 let reducers = {
     loading(state=false, action) {
         if (action.type === 'LOADING_START') {
@@ -8,12 +10,7 @@ let reducers = {
         }
         return state;
     },
-    data(state={}, action) {
-        if (action.type === 'SET_DATA') {
-            return action.payload;
-        }
-        return state;
-    },
+    data
 };
 
 export default reducers;
