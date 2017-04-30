@@ -3,13 +3,20 @@
 .MyDashboard {
     display: flex;
     flex-direction: row;
+    height: 100%;
 
     .MyMenu {
-        width: $menu-width;
+        width: $menuWidth;
     }
 
     .MyPage {
-        width: calc(100% - $menu-width);
+        width: calc(100% - #{$menuWidth});
+        height: 100%;
+    }
+
+    .MyContent {
+        overflow: auto;
+        height: calc(100% - 64px);
     }
 
 }

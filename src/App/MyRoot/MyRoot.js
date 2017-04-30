@@ -6,8 +6,7 @@ import { withRouter } from 'react-router-dom'
 import actionCreators from './actionCreators';
 
 class MyRoot extends Component {
-    constructor(props) {
-        super(props)
+    componentWillMount() {
         this.props.pushDashboard();
     }
     render() {
