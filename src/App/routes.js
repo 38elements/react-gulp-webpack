@@ -1,6 +1,6 @@
-import App from './App'
-import Home from './Home';
-import About from './About';
+import App from './App';
+import MyRoot from './MyRoot';
+import MyDashboard from './MyDashboard';
 
 
 const routes = [
@@ -10,11 +10,11 @@ const routes = [
             {
                 path: '/',
                 exact: true,
-                component: Home
+                component: MyRoot
             },
             {
-                path: '/about',
-                component: About
+                path: '/dashboard',
+                component: MyDashboard
             },
         ]
     }

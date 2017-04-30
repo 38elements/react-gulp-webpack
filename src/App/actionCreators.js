@@ -4,7 +4,7 @@ import { push } from 'react-router-redux';
 
 let actionCreators = {
     pushAbout() {
-        return push('/about');
+        return push('/dashboard');
     },
     pushHome() {
         return push('/');

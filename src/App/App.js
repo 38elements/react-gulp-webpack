@@ -23,9 +23,6 @@ export const store = createStore(
 );
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
     about() {
         this.props.pushAbout();
     }
