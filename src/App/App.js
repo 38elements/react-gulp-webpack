@@ -23,30 +23,9 @@ export const store = createStore(
 );
 
 class App extends Component {
-    about() {
-        this.props.pushAbout();
-    }
-    home() {
-        this.props.pushHome();
-    }
-    request() {
-        this.props.request();
-    }
     render() {
         return (
             <div className="App">
-                App<br/>
-                {
-                    (() => {
-                        if (this.props.loading) {
-                            return <span>loading</span>
-                        }
-                    })()
-                }<br/>
-                {JSON.stringify(this.props.data)}<br/>
-                <button onClick={this.about.bind(this)}>about</button>
-                <button onClick={this.home.bind(this)}>home</button>
-                <button onClick={this.request.bind(this)}>request</button>
                 {renderRoutes(this.props.route.routes)}
             </div>
         );

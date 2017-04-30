@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.MyDashboard {
+    display: flex;
+    flex-direction: row;
+
+    .MyMenu {
+        width: $menu-width;
+    }
+
+    .MyPage {
+        width: calc(100% - $menu-width);
+    }
+
+}
