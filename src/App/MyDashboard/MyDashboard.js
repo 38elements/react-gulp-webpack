@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { List, ListItem } from 'material-ui/List';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
@@ -17,11 +18,23 @@ class MyDashboard extends Component {
         this.props.request();
     }
     render() {
+        let parts = [
+            <ListItem primaryText="CPU" />, 
+            <ListItem primaryText="SSD" />, 
+            <ListItem primaryText="Memory" />, 
+            <ListItem primaryText="GPU" />, 
+        ];
         return (
             <div className="MyDashboard">
                 <div className="MyMenu">
                     <AppBar />
-                    <div></div>
+                    <List>
+                        <ListItem primaryText="Book" /> 
+                        <ListItem
+                            primaryText="Parts"
+                            nestedItems={parts}
+                        /> 
+                    </List>
                 </div>
                 <div className="MyPage">
                     <AppBar iconStyleLeft={{display: 'none'}} />
