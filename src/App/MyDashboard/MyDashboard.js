@@ -4,6 +4,10 @@ import { List, ListItem } from 'material-ui/List';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import actionCreators from './actionCreators';
 
@@ -19,15 +23,26 @@ class MyDashboard extends Component {
     }
     render() {
         let parts = [
-            <ListItem primaryText="CPU" />, 
-            <ListItem primaryText="SSD" />, 
-            <ListItem primaryText="Memory" />, 
-            <ListItem primaryText="GPU" />, 
+            <ListItem primaryText="CPU" key="1"/>, 
+            <ListItem primaryText="SSD" key="2" />, 
+            <ListItem primaryText="Memory" key="3" />, 
+            <ListItem primaryText="GPU"  key="4" />, 
         ];
+        let iconElementRight = (
+            <IconMenu
+                iconButtonElement={
+                    <IconButton><MoreVertIcon /></IconButton>
+                }
+                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            >
+                <MenuItem primaryText="Logout" />
+            </IconMenu>
+        );
         return (
             <div className="MyDashboard">
                 <div className="MyMenu">
-                    <AppBar />
+                    <AppBar iconStyleLeft={{display: 'none'}} title="Dashboard" />
                     <List>
                         <ListItem primaryText="Book" /> 
                         <ListItem
@@ -37,7 +52,10 @@ class MyDashboard extends Component {
                     </List>
                 </div>
                 <div className="MyPage">
-                    <AppBar iconStyleLeft={{display: 'none'}} />
+                    <AppBar
+                        iconStyleLeft={{display: 'none'}}
+                        iconElementRight={iconElementRight}
+                    />
                     <div className="MyContent">
                         {
                             (() => {
