@@ -14,15 +14,30 @@
         width: calc(100% - #{$menuWidth});
         height: 100%;
         overflow-y: hidden;
+        .LoadingOuter {
+            width: calc(100% - #{$menuWidth});
+            height: calc(100% - 64px);
+            z-index: 9999;
+            position: absolute;
+            top: 64px;
+            .Loading {
+                position: absolute;
+                top: calc(50% - 20px);
+                left: calc(50% - 20px);
+            }
+        }
     }
 
     .MyContent {
         overflow: auto;
         height: calc(100% - 64px);
         border-left: solid 1px rgba(0, 0, 0, 0.12);
-        padding-top: 16px;
-        padding-left: 48px;
         overflow-y: auto;
+        > div {
+            margin-top: 24px;
+            margin-left: 48px;
+            margin-bottom: 48px;
+        }
     }
 
 }

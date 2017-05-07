@@ -7,6 +7,7 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
+import CircularProgress from 'material-ui/CircularProgress';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import actionCreators from './actionCreators';
@@ -39,6 +40,14 @@ class MyDashboard extends Component {
                 <MenuItem primaryText="Logout" />
             </IconMenu>
         );
+        let loading = null
+        if (this.props.loading) {
+            loading = (
+                <div className="LoadingOuter">
+                    <CircularProgress className="Loading" />
+                </div>
+            );
+        }
         return (
             <div className="MyDashboard">
                 <div className="MyMenu">
@@ -57,18 +66,15 @@ class MyDashboard extends Component {
                         iconElementRight={iconElementRight}
                     />
                     <div className="MyContent">
-                        {
-                            (() => {
-                                if (this.props.loading) {
-                                    return <span>loading</span>
-                                }
-                            })()
-                        }<br/>
-                        {JSON.stringify(this.props.data)}<br/>
-                        <button onClick={this.about.bind(this)}>about</button>
-                        <button onClick={this.home.bind(this)}>home</button>
-                        <button onClick={this.request.bind(this)}>request</button>
+                        <div>
+                            <br/>
+                            {JSON.stringify(this.props.data)}<br/>
+                            <button onClick={this.about.bind(this)}>about</button>
+                            <button onClick={this.home.bind(this)}>home</button>
+                            <button onClick={this.request.bind(this)}>request</button>
+                        </div>
                     </div>
+                    {loading}
                 </div>
             </div>
         );
