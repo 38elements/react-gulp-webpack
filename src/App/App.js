@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import { renderRoutes } from 'react-router-config'
-import { createStore, combineReducers, applyMiddleware, bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createHistory from 'history/createBrowserHistory';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
-import { withRouter } from 'react-router-dom'
 import thunk from 'redux-thunk';
 
+import { setupComponent  } from './utils';
 import reducers from './reducers';
 import middlewares from './middlewares';
 import actionCreators from './actionCreators';
@@ -32,16 +31,6 @@ class App extends Component {
     }
 };
 
-let mapStateToProps = function(state) {
-    return state;
-};
-
-let mapDispatchToProps = function(dispatch) {
-    return {
-        ...bindActionCreators(actionCreators, dispatch)
-    };
-};
-
-App = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+App = setupComponent(App, actionCreators);
 
 export default App;
