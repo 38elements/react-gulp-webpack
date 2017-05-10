@@ -15,3 +15,11 @@ export function setupComponent(component, actionCreators) {
 
     return withRouter(connect(mapStateToProps, mapDispatchToProps)(component));
 }
+
+export function n(data) {
+    return Object.assign({}, ...data);
+}
+
+export function s(that, attr) {
+    return that[attr].bind(that);
+}
